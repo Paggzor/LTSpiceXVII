@@ -1,0 +1,94 @@
+*
+**********************************************************
+*
+* PMBT3904YS
+*
+* NXP Semiconductors
+*
+* NPN switching transistor
+* IC   = 200 mA
+* VCEO = 40 V 
+* hFE  = 100 - 300  @ 1V/10mA
+*
+*
+*
+*
+* Package pinning does not match Spice model pinning.
+* Package: SOT 363
+* 
+* Package Pin 1;4: Emitter   TR1;TR2
+* Package Pin 2;5: Base      TR1;TR2  
+* Package Pin 3;6: Collector TR2;TR1
+*
+*
+* Extraction date (week/year): 18/2011 
+* Simulator: Spice 3
+*
+**********************************************************
+*#
+* Please note: The following model is to be used twice in 
+* schematic due to equality of both transistors.
+*
+.SUBCKT PMBT3904YS 1 2 3
+*
+Q1 1 2 3 MAIN
+D1 2 1 DIODE
+*
+* The diode is dedicated to improve modeling of
+* reverse mode operation and do not reflect
+* a physical device.
+*
+.MODEL MAIN NPN
++ IS = 2.83E-015
++ NF = 0.9876
++ ISE = 5.715E-016
++ NE = 1.301
++ BF = 190
++ IKF = 0.08511
++ VAF = 20.23
++ NR = 0.9924
++ ISC = 1.531E-011
++ NC = 1.439
++ BR = 20.5
++ IKR = 1000
++ VAR = 15.83
++ RB = 24.44
++ IRB = 0.000109
++ RBM = 2.861
++ RE = 0.7001
++ RC = 0.3319
++ XTB = 0
++ EG = 1.11
++ XTI = 3
++ CJE = 6.574E-012
++ VJE = 0.3993
++ MJE = 0.3026
++ TF = 2.4E-010
++ XTF = 10
++ VTF = 2
++ ITF = 0.15
++ PTF = 0
++ CJC = 2.727E-012
++ VJC = 0.3868
++ MJC = 0.2389
++ XCJC = 1
++ TR = 2.2E-007
++ CJS = 0
++ VJS = 0.75
++ MJS = 0.333
++ FC = 0.78
+.MODEL DIODE D
++ IS = 3.799E-015
++ N = 0.9131
++ BV = 1000
++ IBV = 0.001
++ RS = 3941
++ CJO = 0
++ VJ = 1
++ M = 0.5
++ FC = 0
++ TT = 0
++ EG = 1.11
++ XTI = 3
+.ENDS
+
